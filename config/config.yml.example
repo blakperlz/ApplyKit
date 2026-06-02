@@ -1,0 +1,67 @@
+# ApplyKit configuration — copy this to config/config.yml and fill it in.
+# config/config.yml is gitignored; this .example template is committed.
+#
+# One file, four sections: profile, scoring, companies, pipeline.
+
+# ---------------------------------------------------------------------------
+# profile — structured facts about you, used by the scorer and crafter.
+# Long-form prose (accomplishments, summaries, voice) goes in context/profile.md.
+# ---------------------------------------------------------------------------
+profile:
+  name: "Your Name"
+  current_title: "Senior Director, AI & Security"
+  location: "City, ST"
+  target_titles:
+    - "Director"
+    - "Senior Director"
+    - "VP"
+  target_comp_min: 250000
+  remote_preference: "remote"          # remote | hybrid | onsite
+  must_haves:
+    - "Leadership scope"
+  deal_breakers:
+    - "Relocation required"
+
+# ---------------------------------------------------------------------------
+# scoring — the dimensions and their weights (percentages). These ten are the
+# defaults from the PRD. Rename, reweight, add, or remove freely; weights are
+# normalised, so they need not total exactly 100.
+# ---------------------------------------------------------------------------
+scoring:
+  dimensions:
+    - { key: role_fit,            label: "Role Fit",            weight: 20, description: "Title, scope, seniority, responsibility alignment" }
+    - { key: technical_match,     label: "Technical Match",     weight: 15, description: "Stack overlap, required vs nice-to-have skills" }
+    - { key: leadership_match,    label: "Leadership Match",    weight: 15, description: "Team size, org scope, management expectations" }
+    - { key: mission_alignment,   label: "Mission Alignment",   weight: 10, description: "Company mission vs your values" }
+    - { key: growth_potential,    label: "Growth Potential",    weight: 10, description: "Career trajectory, learning, promotion signals" }
+    - { key: compensation_signal, label: "Compensation Signal", weight: 10, description: "Salary range or inferred level vs target" }
+    - { key: location_remote,     label: "Location/Remote",     weight: 5,  description: "Remote/hybrid/onsite fit" }
+    - { key: security_domain,     label: "Security Domain",     weight: 5,  description: "Cybersecurity, AI safety, trust & safety relevance" }
+    - { key: government_adjacency, label: "Government Adjacency", weight: 5, description: "Public sector, clearance, defense connection" }
+    - { key: culture_signal,      label: "Culture Signal",      weight: 5,  description: "Tone, values, work-life signals, red flags" }
+
+# ---------------------------------------------------------------------------
+# companies — your Scout watchlist. tier is dream | target | opportunistic.
+# Dream companies are scored first and may set a lower craft_threshold.
+# ---------------------------------------------------------------------------
+companies:
+  - name: "Anthropic"
+    careers_url: "https://www.anthropic.com/careers"
+    tier: dream
+    check_frequency: daily
+    craft_threshold: "B"        # optional per-company override
+  - name: "Example Corp"
+    careers_url: "https://example.com/careers"
+    tier: target
+    check_frequency: daily
+
+# ---------------------------------------------------------------------------
+# pipeline — volume controls and run settings (PRD section 5).
+# ---------------------------------------------------------------------------
+pipeline:
+  score_cap: 25                 # max JDs evaluated per run
+  craft_threshold: "B+"         # min grade for automatic material generation
+  craft_cap: 5                  # max materials generated per run
+  schedule: "daily"             # informational; the scheduler lives in Cowork
+  calibration_examples: 5       # recent disagreements injected into the eval prompt
+  calibration_min_sample: 5     # disagreements before suggesting a reweight

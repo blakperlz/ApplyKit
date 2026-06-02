@@ -1,0 +1,29 @@
+# Profile narrative (template)
+
+Copy this to `context/profile.md` and fill it in. This file is gitignored — it
+holds the long-form prose the scorer and crafter use. Structured facts (titles,
+comp, preferences) live in `config/config.yml` instead.
+
+## Summary variants
+
+A few framings of who you are, for different role types.
+
+- **AI/Security leadership:** _e.g._ "Senior leader who builds and scales AI and
+  security programs..."
+- **Technical program management:** _..._
+- **Individual-contributor / hands-on:** _..._
+
+## Accomplishments
+
+Concrete, quantified wins. The crafter draws on these; only true facts.
+
+- Led X that achieved Y, measured by Z.
+- Built/shipped/scaled ... resulting in ...
+
+## Voice & cover-letter style
+
+How you write. Phrases you use, tone, things to avoid (no clichés, no corporate
+filler). The cover-letter generator mirrors this.
+
+- Direct, specific, evidence-first.
+- Avoid: "passionate", "synergy", "fast-paced", "wear many hats".

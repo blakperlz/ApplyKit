@@ -1,0 +1,37 @@
+# ----- ApplyKit personal data (NEVER commit) -----
+config/config.yml
+context/profile.md
+*.db
+*.db-journal
+materials/
+applykit.db
+
+# ----- Generated output (regenerable per run) -----
+output/*.html
+output/*.json
+
+# ----- Stale pre-ADR code, parked for manual deletion -----
+_stale_ccc_predates_adr/
+
+# ----- Python -----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ----- OS / editor -----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# ----- Multi-profile personal data (per-person configs, narratives, DBs) -----
+profiles/

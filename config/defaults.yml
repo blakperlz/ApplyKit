@@ -1,0 +1,51 @@
+# ApplyKit defaults — TRACKED in git.
+# Scoring dimensions, pipeline caps, and structural settings.
+# Personal data (profile, company watchlist) stays in config.yml (gitignored).
+# config.yml values override anything set here.
+
+scoring:
+  dimensions:
+    - key: role_fit
+      label: "Role Fit"
+      weight: 20
+      description: "Title, scope, seniority, responsibility alignment"
+    - key: technical_match
+      label: "Technical Match"
+      weight: 15
+      description: "Stack overlap, required vs nice-to-have skills"
+    - key: leadership_match
+      label: "Leadership Match"
+      weight: 15
+      description: "Team size, org scope, management expectations"
+    - key: mission_alignment
+      label: "Mission Alignment"
+      weight: 10
+      description: "Company mission vs user's values"
+    - key: growth_potential
+      label: "Growth Potential"
+      weight: 10
+      description: "Career trajectory, learning, promotion signals"
+    - key: compensation_signal
+      label: "Compensation Signal"
+      weight: 10
+      description: "Salary range or inferred level vs target"
+    - key: location_remote
+      label: "Location/Remote"
+      weight: 10
+      description: "Remote/hybrid/onsite fit"
+    - key: security_domain
+      label: "Security Domain"
+      weight: 5
+      description: "Cybersecurity, AI safety, trust & safety relevance"
+    - key: culture_signal
+      label: "Culture Signal"
+      weight: 5
+      description: "Tone, values, work-life signals, red flags"
+
+pipeline:
+  score_cap: 25
+  craft_threshold: "B+"
+  craft_cap: 5
+  schedule: "daily"
+  calibration_examples: 5
+  calibration_min_sample: 5
